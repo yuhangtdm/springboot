@@ -16,7 +16,7 @@ import java.util.Arrays;
  * 目的是添加druid监控
  */
 @Configuration
-public class DruidConfig {
+public class DruidConfiguration {
 
     /**
      * 注册druid的servlet
