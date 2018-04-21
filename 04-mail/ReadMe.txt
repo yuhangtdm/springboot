@@ -1,0 +1,3 @@
+java mail实现邮件发送
+1.自己封装类 外部配置需要的属性 通过java mail的api实现邮件发送
+2.利用springboot的自动配置 导入jar 利用springboot的api简单的实现邮件发送
