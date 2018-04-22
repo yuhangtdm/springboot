@@ -1,6 +1,7 @@
 package com.dity.web.config;
 
 import com.dity.web.pojo.User;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,6 +21,7 @@ public class InterceptorConfiguration extends WebMvcConfigurerAdapter {
     public void addInterceptors(InterceptorRegistry registry) {
         super.addInterceptors(registry);
         registry.addInterceptor(new SessionInterceptor()).addPathPatterns("/*").excludePathPatterns("/user/login","/login");
+        registry.addInterceptor(loggerInterceptor()).addPathPatterns("/**");
     }
     class SessionInterceptor implements HandlerInterceptor{
 
@@ -44,4 +46,10 @@ public class InterceptorConfiguration extends WebMvcConfigurerAdapter {
 
         }
     }
+
+    @Bean
+    public LoggerInterceptor loggerInterceptor(){
+        return new LoggerInterceptor();
+    }
+
 }

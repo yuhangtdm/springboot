@@ -2,6 +2,7 @@ package com.dity.web.controler;
 
 import com.dity.web.dao.UserDao;
 import com.dity.web.pojo.User;
+import com.dity.web.util.LoggerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,7 +59,7 @@ public class UserController {
             return "密码错误";
         }
         request.getSession().setAttribute("user",user);
-
+        request.getSession().setAttribute(LoggerUtils.LOGGER_RETURN,user);
         return "用户登录成功";
     }
 }

@@ -18,3 +18,7 @@ springmvc的核心控制器 配置映射时
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
+
+
+记录日志利用拦截器 根据request和response获得日志的相关信息 比如请求url，请求方法等
+注意 拦截器没加在spring工厂里 是不可以注入dao的
