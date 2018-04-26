@@ -22,3 +22,10 @@ springmvc的核心控制器 配置映射时
 
 记录日志利用拦截器 根据request和response获得日志的相关信息 比如请求url，请求方法等
 注意 拦截器没加在spring工厂里 是不可以注入dao的
+
+
+servlet注册
+一种是 ServletRegistrationBean
+第二种是 配置类 加注解 @ServletComponentScan
+servlet上加注解 @WebServlet
+第二种比较好用

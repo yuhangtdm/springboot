@@ -1,0 +1,20 @@
+1.jpa的使用 继承JpaRepository 可以实现增删改查 分页 排序
+
+2.redis的使用
+配置 cache redis的pom文件
+配置redis的参数
+加@EnableCaching注解 返回RedisCacheManager的bean对象
+在需要加缓存的类上@CacheConfig(cacheNames = "user") 方法上加@Cacheable
+常用的redis命令
+flushdb 清空数据库
+select index 选择数据库
+del key 删除
+keys * 查看所有key
+
+3.cors跨域
+支持跨域请求 提供的服务 跨域ajax请求可以完成
+配置 addCorsMappings
+
+4.定时器
+启动类配置 @EnableScheduling
+组件里的方法加@Scheduled(fixedDelay = 1000*1)
