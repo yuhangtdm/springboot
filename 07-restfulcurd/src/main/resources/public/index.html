@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="zTreeStyle.css">
+    <script src="jquery-1.4.4.min.js"></script>
+    <script src="jquery.ztree.all.min.js"></script>
+    </head>
+<script type="text/javascript">
+    var zTree;
+    var setting = {
+        data: {
+            simpleData: {
+                enable:true,
+            }
+        },
+        view:{
+            showIcon:false,
+            showLine:true,
+            addDiyDom: addDiyDom
+        }
+    };
+
+    function addDiyDom(treeId, treeNode) {
+        var aObj = $("#" + treeNode.tId + "_a");
+        if ($("#diyBtn_"+treeNode.id).length>0) return;
+        var editStr = "<span id='diyBtn_space_" +treeNode.id+ "' > </span>"
+            + "<button type='button' class='diyBtn1' id='diyBtn_" + treeNode.id
+            + "' title='"+treeNode.name+"' onfocus='this.blur();'></button>";
+        aObj.append(editStr);
+        var btn = $("#diyBtn_"+treeNode.id);
+        if (btn) btn.bind("click", function(){alert("diy Button for " + treeNode.name);});
+    };
+
+    var zNodes =[
+        {id:1, pId:0, name:"水果", open:true},
+        {id:101, pId:1, name:"苹果"},
+        {id:102, pId:1, name:"香蕉"},
+        {id:103, pId:1, name:"梨"},
+        {id:10101, pId:101, name:"红富士苹果"},
+        {id:10102, pId:101, name:"红星苹果"},
+        {id:10103, pId:101, name:"嘎拉"},
+        {id:10104, pId:101, name:"桑萨"},
+        {id:10201, pId:102, name:"千层蕉"},
+        {id:10202, pId:102, name:"仙人蕉"},
+        {id:10203, pId:102, name:"吕宋蕉"},
+    ];
+
+    $(document).ready(function(){
+        var t = $("#tree");
+
+        /**
+         * zTree 初始化方法：$.fn.zTree.init(t, setting, zNodes)
+         * t:用于展现 zTree 的 DOM 容器
+         * setting:zTree 的配置数据
+         * zNodes:zTree 的节点数据
+         *
+         */
+        t = $.fn.zTree.init(t, setting, zNodes);
+    });
+</script>
+<h1>首页</h1>
+
+<div id="tree" class="ztree" style="width:260px; overflow:auto;"></div>
+
+</body>
+
+
+</html>
